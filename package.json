@@ -1,0 +1,59 @@
+{
+  "name": "homo-datarism",
+  "version": "0.1.0",
+  "description": "데이터 중심의 인류",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
+  },
+  "author": {
+    "name": "thewoowon",
+    "email": "thewoowon@naver.com",
+    "url": "https://thewoowon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewoowon/homo-datarism.git"
+  },
+  "homepage": "https://github.com/thewoowon/homo-datarism#readme",
+  "keywords": [
+    "react",
+    "next",
+    "tailwindcss",
+    "typescript",
+    "eslint",
+    "prettier",
+    "postcss"
+  ],
+  "dependencies": {
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@next/third-parties": "^15.1.6",
+    "@tanstack/react-query": "^5.66.0",
+    "@types/qs": "^6.9.18",
+    "axios": "^1.7.9",
+    "next": "15.1.6",
+    "next-seo": "^6.6.0",
+    "next-sitemap": "^4.2.3",
+    "qs": "^6.14.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "license": "MIT"
+}

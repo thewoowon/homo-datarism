@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/*
+
+# Host
+Host: https://www.homodatarism.com
+
+# Sitemaps
+Sitemap: https://www.homodatarism.com/sitemap.xml
