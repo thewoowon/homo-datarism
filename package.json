@@ -4,7 +4,7 @@
   "description": "데이터 중심의 인류",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -34,15 +34,21 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@next/third-parties": "^15.1.6",
+    "@react-three/drei": "^10.0.5",
+    "@react-three/fiber": "^9.1.0",
     "@tanstack/react-query": "^5.66.0",
     "@types/qs": "^6.9.18",
     "axios": "^1.7.9",
+    "leva": "^0.10.0",
+    "lil-gui": "^0.20.0",
     "next": "15.1.6",
     "next-seo": "^6.6.0",
     "next-sitemap": "^4.2.3",
     "qs": "^6.14.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
+    "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -52,6 +58,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
+    "raw-loader": "^4.0.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
