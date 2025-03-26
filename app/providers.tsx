@@ -1,13 +1,16 @@
 "use client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import * as gtag from "@/lib/gtag";
 import Header from "@/components/layout/Header";
+import { Toaster } from "react-hot-toast";
+import Bounce from "@/components/element/bounce";
+import Splash from "@/components/layout/Splash";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  // const [isSplashVisible, setIsSplashVisible] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isSplashVisible, setIsSplashVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -78,18 +81,39 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const splash = sessionStorage.getItem("splash");
+  useEffect(() => {
+    const splash = sessionStorage.getItem("splash");
 
-  //   if (!splash) {
-  //     setIsSplashVisible(true);
-  //     sessionStorage.setItem("splash", "true");
-  //   } else {
-  //     setIsSplashVisible(false);
-  //   }
+    if (!splash) {
+      setIsSplashVisible(true);
+      sessionStorage.setItem("splash", "true");
+    } else {
+      setIsSplashVisible(false);
+    }
 
-  //   setIsLoading(false);
-  // }, []);
+    setIsLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className="root-container"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "calc(var(--vh, 1vh) * 100)", // height를 계산된 뷰포트 높이로 설정
+          position: "relative",
+          width: "100%",
+          margin: "0 auto",
+          overflow: "auto", // overflow를 auto로 변경
+        }}
+      >
+        <Bounce width={60} height={60} />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -105,12 +129,37 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
             width: "100%",
             margin: "0 auto",
             overflow: "auto", // overflow를 auto로 변경
-            backgroundColor: "#fff",
           }}
         >
-          <Header />
+          {/* <Header /> */}
           {children}
+          {isSplashVisible && <Splash />}
         </div>
+        <Toaster
+          toastOptions={{
+            success: {
+              icon: null,
+              duration: 3000,
+              className: "success-toast",
+            },
+            error: {
+              icon: null,
+              duration: 3000,
+              className: "error-toast",
+            },
+            custom: {
+              duration: 3000,
+              style: {
+                width: "100%",
+                backgroundColor: "#FFE96F",
+                fontSize: "14px",
+                lineHeight: "21px",
+                letterSpacing: "-2%",
+                textAlign: "left",
+              },
+            },
+          }}
+        />
       </QueryClientProvider>
       <GoogleAnalytics gaId={gtag.GA_TRACKING_ID || ""} />
       <GoogleTagManager gtmId={gtag.GTM_TRACKING_ID || ""} />
