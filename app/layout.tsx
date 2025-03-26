@@ -3,7 +3,7 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "Homo Datarism",
+  title: "HOMO DATARISM",
   description: "데이터 중심의 인류",
   metadataBase: new URL("https://homodatarism.com"),
   openGraph: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteId: "1467726470533754880",
     creatorId: "1467726470533754880",
     creator: "@homodatarism",
-    title: "Homo Datarism",
+    title: "HOMO DATARISM",
     description: "데이터 중심의 인류",
     images: {
       url: "https://homodatarism.com/og-image.png",
