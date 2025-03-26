@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { memo, useEffect, useState } from "react";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import * as gtag from "@/lib/gtag";
-import Header from "@/components/layout/Header";
+// import Header from "@/components/layout/Header";
 import { Toaster } from "react-hot-toast";
 import Bounce from "@/components/element/bounce";
 import Splash from "@/components/layout/Splash";

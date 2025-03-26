@@ -31,11 +31,10 @@ const Earth: React.FC = () => {
   specularCloudsTexture.anisotropy = 8;
 
   // GUI Parameters
-  const [atmosphereDayColor, setAtmosphereDayColor] = useState("#00aaff");
-  const [atmosphereTwilightColor, setAtmosphereTwilightColor] =
-    useState("#ff6600");
-  const [phi, setPhi] = useState(Math.PI * 0.5);
-  const [theta, setTheta] = useState(0.5);
+  const [atmosphereDayColor] = useState("#00aaff");
+  const [atmosphereTwilightColor] = useState("#ff6600");
+  const [phi] = useState(Math.PI * 0.5);
+  const [theta] = useState(0.5);
   const sunDirection = new THREE.Vector3();
   const sunSpherical = new THREE.Spherical(1, phi, theta);
   sunDirection.setFromSpherical(sunSpherical);
