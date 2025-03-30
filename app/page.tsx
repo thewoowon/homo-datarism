@@ -12,113 +12,113 @@ const EarthScene = dynamic(
   }
 );
 
-const SEARCH_RESULT: {
-  label: string;
-  lat: number;
-  lng: number;
-}[] = [
-  {
-    label: "서울",
-    lat: 37.5665,
-    lng: 126.978,
-  },
-  {
-    label: "부산",
-    lat: 35.1796,
-    lng: 129.0756,
-  },
-  {
-    label: "대구",
-    lat: 35.8714,
-    lng: 128.6014,
-  },
-  {
-    label: "인천",
-    lat: 37.4563,
-    lng: 126.7052,
-  },
-  {
-    label: "광주",
-    lat: 35.1595,
-    lng: 126.8526,
-  },
-  {
-    label: "대전",
-    lat: 36.3504,
-    lng: 127.3845,
-  },
-  {
-    label: "울산",
-    lat: 35.5384,
-    lng: 129.3114,
-  },
-  {
-    label: "세종",
-    lat: 36.4808,
-    lng: 127.2892,
-  },
-  {
-    label: "경기",
-    lat: 37.4138,
-    lng: 127.5183,
-  },
-  {
-    label: "강원",
-    lat: 37.8228,
-    lng: 128.1555,
-  },
-  {
-    label: "충북",
-    lat: 36.8001,
-    lng: 127.6645,
-  },
-  {
-    label: "충남",
-    lat: 36.5184,
-    lng: 126.8,
-  },
-  {
-    label: "전북",
-    lat: 35.7175,
-    lng: 127.153,
-  },
-  {
-    label: "전남",
-    lat: 34.8679,
-    lng: 126.991,
-  },
-  {
-    label: "경북",
-    lat: 36.5769,
-    lng: 128.5055,
-  },
-  {
-    label: "경남",
-    lat: 35.4606,
-    lng: 128.2132,
-  },
-  {
-    label: "제주",
-    lat: 33.4996,
-    lng: 126.5312,
-  },
-  {
-    label: "해외",
-    lat: 37.5665,
-    lng: 126.978,
-  },
-];
+// const SEARCH_RESULT: {
+//   label: string;
+//   lat: number;
+//   lng: number;
+// }[] = [
+//   {
+//     label: "서울",
+//     lat: 37.5665,
+//     lng: 126.978,
+//   },
+//   {
+//     label: "부산",
+//     lat: 35.1796,
+//     lng: 129.0756,
+//   },
+//   {
+//     label: "대구",
+//     lat: 35.8714,
+//     lng: 128.6014,
+//   },
+//   {
+//     label: "인천",
+//     lat: 37.4563,
+//     lng: 126.7052,
+//   },
+//   {
+//     label: "광주",
+//     lat: 35.1595,
+//     lng: 126.8526,
+//   },
+//   {
+//     label: "대전",
+//     lat: 36.3504,
+//     lng: 127.3845,
+//   },
+//   {
+//     label: "울산",
+//     lat: 35.5384,
+//     lng: 129.3114,
+//   },
+//   {
+//     label: "세종",
+//     lat: 36.4808,
+//     lng: 127.2892,
+//   },
+//   {
+//     label: "경기",
+//     lat: 37.4138,
+//     lng: 127.5183,
+//   },
+//   {
+//     label: "강원",
+//     lat: 37.8228,
+//     lng: 128.1555,
+//   },
+//   {
+//     label: "충북",
+//     lat: 36.8001,
+//     lng: 127.6645,
+//   },
+//   {
+//     label: "충남",
+//     lat: 36.5184,
+//     lng: 126.8,
+//   },
+//   {
+//     label: "전북",
+//     lat: 35.7175,
+//     lng: 127.153,
+//   },
+//   {
+//     label: "전남",
+//     lat: 34.8679,
+//     lng: 126.991,
+//   },
+//   {
+//     label: "경북",
+//     lat: 36.5769,
+//     lng: 128.5055,
+//   },
+//   {
+//     label: "경남",
+//     lat: 35.4606,
+//     lng: 128.2132,
+//   },
+//   {
+//     label: "제주",
+//     lat: 33.4996,
+//     lng: 126.5312,
+//   },
+//   {
+//     label: "해외",
+//     lat: 37.5665,
+//     lng: 126.978,
+//   },
+// ];
 
 export default function Home() {
   // fadeOut 애니메이션을 적용한 후에는 컴포넌트를 제거합니다.
   const [input, setInput] = useState("");
-  const [searchResult, setSearchResult] = useState<
-    {
-      label: string;
-      lat: number;
-      lng: number;
-    }[]
-  >([]);
+  // const [searchResult, setSearchResult] = useState<
+  //   {
+  //     label: string;
+  //     lat: number;
+  //     lng: number;
+  //   }[]
+  // >([]);
 
   const [mode, setMode] = useState<"onboarding" | "normal">("onboarding");
 

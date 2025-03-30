@@ -1,4 +1,3 @@
-import { latLonToXYZ } from "@/utils";
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";

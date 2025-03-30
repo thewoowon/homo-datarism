@@ -9,26 +9,26 @@ import earthVertexShader from "./shaders/earth/vertex.glsl";
 import earthFragmentShader from "./shaders/earth/fragment.glsl";
 import atmosphereVertexShader from "./shaders/atmosphere/vertex.glsl";
 import atmosphereFragmentShader from "./shaders/atmosphere/fragment.glsl";
-import { latLonToXYZ } from "@/utils";
+// import { latLonToXYZ } from "@/utils";
 import { gsap } from "gsap";
-import GridLayer from "../layers/Grid";
-import CloudLayer from "../layers/Cloud";
+// import GridLayer from "../layers/Grid";
+// import CloudLayer from "../layers/Cloud";
 
-const Marker: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
-  const markerRef = useRef<THREE.Mesh>(null);
-  const position = latLonToXYZ(2.05, lat, lon); // 지구 반지름보다 약간 바깥쪽에 위치
+// const Marker: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
+//   const markerRef = useRef<THREE.Mesh>(null);
+//   const position = latLonToXYZ(2.05, lat, lon); // 지구 반지름보다 약간 바깥쪽에 위치
 
-  return (
-    <mesh ref={markerRef} position={position}>
-      <sphereGeometry args={[0.05, 16, 16]} />
-      <meshStandardMaterial
-        color="red"
-        emissive="red"
-        emissiveIntensity={0.8}
-      />
-    </mesh>
-  );
-};
+//   return (
+//     <mesh ref={markerRef} position={position}>
+//       <sphereGeometry args={[0.05, 16, 16]} />
+//       <meshStandardMaterial
+//         color="red"
+//         emissive="red"
+//         emissiveIntensity={0.8}
+//       />
+//     </mesh>
+//   );
+// };
 
 /**
  * 🌍 Earth Component
@@ -163,7 +163,7 @@ type EarthSceneProps = {
  */
 const EarthScene = ({ mode }: EarthSceneProps) => {
   const camera = useRef<THREE.PerspectiveCamera | null>(null);
-  const [context, setContext] = useState<{
+  const [context] = useState<{
     fov: number;
     position: [number, number, number];
   }>({
