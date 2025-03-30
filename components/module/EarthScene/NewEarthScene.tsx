@@ -9,6 +9,26 @@ import earthVertexShader from "./shaders/earth/vertex.glsl";
 import earthFragmentShader from "./shaders/earth/fragment.glsl";
 import atmosphereVertexShader from "./shaders/atmosphere/vertex.glsl";
 import atmosphereFragmentShader from "./shaders/atmosphere/fragment.glsl";
+import { latLonToXYZ } from "@/utils";
+import { gsap } from "gsap";
+import GridLayer from "../layers/Grid";
+import CloudLayer from "../layers/Cloud";
+
+const Marker: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
+  const markerRef = useRef<THREE.Mesh>(null);
+  const position = latLonToXYZ(2.05, lat, lon); // 지구 반지름보다 약간 바깥쪽에 위치
+
+  return (
+    <mesh ref={markerRef} position={position}>
+      <sphereGeometry args={[0.05, 16, 16]} />
+      <meshStandardMaterial
+        color="red"
+        emissive="red"
+        emissiveIntensity={0.8}
+      />
+    </mesh>
+  );
+};
 
 /**
  * 🌍 Earth Component
@@ -119,6 +139,7 @@ const Earth: React.FC = () => {
         <sphereGeometry args={[2, 64, 64]} />
         <primitive object={atmosphereMaterial} attach="material" />
       </mesh>
+      {/* <GridLayer /> */}
     </>
   );
 };
@@ -133,15 +154,51 @@ const SceneSetup = () => {
   return null;
 };
 
+type EarthSceneProps = {
+  mode: "onboarding" | "normal";
+};
+
 /**
  * 🎥 Scene & Renderer
  */
-const EarthScene: React.FC = () => {
+const EarthScene = ({ mode }: EarthSceneProps) => {
+  const camera = useRef<THREE.PerspectiveCamera | null>(null);
+  const [context, setContext] = useState<{
+    fov: number;
+    position: [number, number, number];
+  }>({
+    fov: 15,
+    position: [12, 5, 4],
+  });
+  useEffect(() => {
+    if (mode === "normal" && camera.current) {
+      console.log("🌍 EarthScene: mode changed to normal");
+
+      gsap.to(camera.current, {
+        fov: 40,
+        duration: 2,
+        onUpdate: () => {
+          camera.current!.updateProjectionMatrix();
+        },
+      });
+
+      gsap.to(camera.current!.position, {
+        x: 10,
+        y: 5,
+        z: 3,
+        duration: 2,
+      });
+    }
+  }, [mode]);
+
   return (
     <Canvas
-      camera={{ position: [12, 5, 4], fov: 15 }}
+      camera={{ position: context.position, fov: context.fov }}
       dpr={Math.min(window.devicePixelRatio, 2)}
       gl={{ antialias: true, powerPreference: "high-performance" }}
+      onCreated={({ camera: createdCamera }) => {
+        camera.current = createdCamera as THREE.PerspectiveCamera;
+      }}
     >
       {/* Lights */}
       <ambientLight intensity={0.5} />
