@@ -126,7 +126,6 @@ export default function Home() {
   const handleSearch = (query: string) => {
     console.log("🔍 검색어:", query);
     // 여기서 API 요청 등을 수행하면 됩니다
-    setMode("normal");
   };
 
   // 디바운스된 함수 정의
@@ -141,6 +140,10 @@ export default function Home() {
   useEffect(() => {
     if (input.trim() === "") return;
     debouncedSearch(input);
+
+    if (mode === "onboarding") {
+      setMode("normal");
+    }
 
     // 언마운트되거나 input이 바뀌기 전 디바운스 취소
     return () => {
